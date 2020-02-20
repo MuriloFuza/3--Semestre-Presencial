@@ -13,10 +13,11 @@ import javax.swing.SwingConstants;
 import java.awt.BorderLayout; //Trabalha com cinco áreas da tela, Norte, Centro, Oeste, Leste e SUL
 import java.awt.GridLayout; /*Trabalha com uma grade, por exemplo uma grade de 5 linhas por 3 colunas 
 e um espaço de pixels entre linhas e colunas*/
-import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;   
-
-public class Calculadora extends JFrame{
+ 
+public class Calculadora extends JFrame implements ActionListener{  
 
 	JButton btSoma;//Botão +
 	JButton btDif;//Botão -
@@ -26,6 +27,49 @@ public class Calculadora extends JFrame{
 	
 	JLabel tx1, tx2, tx3;//Caixas de dialogo com o usuario
 	JTextField textoV1, textoV2, textoR;// Caixa de inserção dos números para o cálculo 
+	
+	public void actionPerformed(ActionEvent e)
+ 	{
+		float num1, num2, resul;
+		try 
+		{
+			num1 = Float.parseFloat(textoV1.getText());//comando para pegar o texto da caixa e tranformar em número e salva em num1;
+			num2 = Float.parseFloat(textoV2.getText());//comando para pegar o texto da caixa e tranformar em número e salva em num2;
+		}catch(NumberFormatException erro) 
+			{
+				num1 = 0;
+				num2 = 0;
+			}
+		if(e.getSource()==btSoma)//Botão da soma foi precionado? 
+		{
+			//SIM
+			resul = num1 + num2;
+			textoR.setText(String.format("%5.2f",resul));//setText para imprimir o texto que esta contido em resul na caixa TextoR
+		}else if(e.getSource()==btDif)//Botão da subtração
+			{
+				resul = num1 - num2;
+				textoR.setText(String.format("%5.2f",resul));
+			}
+		else if(e.getSource()==btMult)//Botão da multiplicação
+			{
+				resul = num1 * num2;
+				textoR.setText(String.format("%5.2f", resul));
+			}
+		else if(e.getSource()==btDiv)//Botão da divisão
+			{
+				resul = num1 / num2;
+				textoR.setText(String.format("%5.2f", resul));
+			}
+		else if(e.getSource()==btClear)//Botão limpar a tela
+			{
+				textoV1.setText("");
+				textoV2.setText("");
+				textoR.setText("");
+			}
+		
+	}//Close ActionPerformed 
+	
+	//Construtor
 	public Calculadora() 
 	{
 		setLayout(new BorderLayout());//Vamos ter apenas Centro e Leste; Utilizaremos uma Grid Dentro do Centro
@@ -65,6 +109,13 @@ public class Calculadora extends JFrame{
 		centro.add(textoR);
 		//Adiconando a cartolina centro a tela
 		add(centro, BorderLayout.CENTER);
+		
+		//Indicando que os botões terão eventos
+		btSoma.addActionListener(this);
+		btDif.addActionListener(this);
+		btMult.addActionListener(this);
+		btDiv.addActionListener(this);
+		btClear.addActionListener(this);
 	}//Close Construtor
 	
 	public static void main(String[]args) {
@@ -77,5 +128,7 @@ public class Calculadora extends JFrame{
 		
 			
 	}//Close Main
+
+
 	
 }//Close Class Calculadora
