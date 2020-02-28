@@ -75,10 +75,11 @@ Vertices Marcados:[A][B][C][D][E][F]
 Arestas Visitadas: (A,B),(B,C),(C,D),(D,B),(D,E),(E,F),(F,A),(F,B),(F,C),(F,D)
 
 Pilha:       //desempilha A
-Vertices Marcados:[A][B][C][D][E][F]
+Vertices Marcados:[A][B][C][D][E][F] -- ARVORE GERADORA
 Arestas Visitadas: (A,B),(B,C),(C,D),(D,B),(D,E),(E,F),(F,A),(F,B),(F,C),(F,D)
 
 Ordem desempilhado: F - E - D - C - B - A
+
 
 
 
