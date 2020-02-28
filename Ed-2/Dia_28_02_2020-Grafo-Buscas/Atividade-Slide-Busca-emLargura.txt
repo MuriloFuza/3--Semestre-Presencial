@@ -1,0 +1,117 @@
+
+				Lista de Adjacencia: - Busca em Largura
+
+
+Ordem: Numero de vertices -- 6
+Grau:Numero de ligacoes a um vertice -- 5
+
+
+
+--1:: 2,3,4,6
+--2:: 1,3,4
+--3:: 1,2,4,6
+--4:: 1,2,3,5,6
+--5:: 4,6
+--6:: 1,3,4,5
+
+
+vertice incial: 1(raiz da busca)
+Q: 1 - 2 - 3 - 4 - 6 - 5//removo do comeco e processo a partir do 2 --principio de fila
+Vertices Marcados:[1][2][3][4][][6]
+Arestas Visitadas:(1,2),(1,3),(1,4),(1,6)
+
+vertice incial: 2
+Q:  2 - 3 - 4 - 6 - 5 //removo do comeco e processo a partir do 3 --principio de fila
+Vertices Marcados:[1][2][3][4][][6]
+Arestas Visitadas:(1,2),(1,3),(1,4),(1,6) -- (2,3),(2,4)
+
+vertice incial: 3
+Q:  3 - 4 - 6 - 5 //removo do comeco e processo a partir do 4 --principio de fila
+Vertices Marcados:[1][2][3][4][][6]
+Arestas Visitadas:(1,2),(1,3),(1,4),(1,6) -- (2,3),(2,4) -- (3,4),(3,6)
+
+vertice incial: 4
+Q:  4 - 6 - 5 //removo do comeco e processo a partir do 6 --principio de fila
+Vertices Marcados:[1][2][3][4][5][6]
+Arestas Visitadas:(1,2),(1,3),(1,4),(1,6) -- (2,3),(2,4) -- (3,4),(3,6) -- (4,5),(4,6)
+
+vertice incial: 6
+Q:  6 - 5 //removo do comeco e processo a partir do  5--principio de fila
+Vertices Marcados:[1][2][3][4][5][6]
+Arestas Visitadas:(1,2),(1,3),(1,4),(1,6) -- (2,3),(2,4) -- (3,4),(3,6) -- (4,5),(4,6) -- (6,5)
+
+vertice incial: 5
+Q: 5
+Vertices Marcados:[1][2][3][4][5][6]
+Arestas Visitadas:(1,2),(1,3),(1,4),(1,6) -- (2,3),(2,4) -- (3,4),(3,6) -- (4,5),(4,6) -- (6,5)
+
+
+
+			Exercicio 2 BFS
+
+--A::B,F
+--B::A,C,D,F
+--C::B,D,F
+--D::B,C,E,F
+--E::D,F
+--F::A,B,C,D,E
+
+vertice incial: A(raiz da busca)
+Q: A - B - F - C - D - E//removo do comeco e processo a partir do B --principio de fila
+Vertices Marcados:[A][B][][][][F]
+Arestas Visitadas:(A,B),(A,F)
+
+vertice incial: B(raiz da busca)
+Q:  B - F - C - D - E//removo do comeco e processo a partir do F --principio de fila
+Vertices Marcados:[A][B][C][D][][F]
+Arestas Visitadas:(A,B),(A,F) -- (B,C),(B,D),(B,F)
+
+
+vertice incial: F(raiz da busca)
+Q:  F - C - D - E//removo do comeco e processo a partir do C --principio de fila
+Vertices Marcados:[A][B][C][D][E][F]
+Arestas Visitadas:(A,B),(A,F) -- (B,C),(B,D),(B,F) -- (F,C),(F,D),(F,E)
+
+vertice incial: C(raiz da busca)
+Q:  C - D - E//removo do comeco e processo a partir do D --principio de fila
+Vertices Marcados:[A][B][C][D][E][F]
+Arestas Visitadas:(A,B),(A,F) -- (B,C),(B,D),(B,F) -- (F,C),(F,D),(F,E) -- (C,D) --
+
+vertice incial: D(raiz da busca)
+Q:  D - E//removo do comeco e processo a partir do E --principio de fila
+Vertices Marcados:[A][B][C][D][E][F]
+Arestas Visitadas:(A,B),(A,F) -- (B,C),(B,D),(B,F) -- (F,C),(F,D),(F,E) -- (C,D) -- (D,E)
+
+
+vertice incial: E(raiz da busca)
+Q:  E
+Vertices Marcados:[A][B][C][D][E][F]
+Arestas Visitadas:(A,B),(A,F) -- (B,C),(B,D),(B,F) -- (F,C),(F,D),(F,E) -- (C,D) -- (D,E)
+
+Ordem dos vertices visitados: A,B,F,C,D,E
+
+
+			Exercicio Busca em Largura BFS - HiperGrafo
+
+
+
+Order de visita ds vertices:: V5,V2,V1,V3,V4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
